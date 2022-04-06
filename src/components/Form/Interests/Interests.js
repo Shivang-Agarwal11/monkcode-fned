@@ -21,8 +21,7 @@ export class Interests extends Component {
       }
   
       render() {
-        // const {values}=this.props;
-          // console.log(this.state)
+       
         return (
             <div>
               <TextField 
