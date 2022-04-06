@@ -19,8 +19,8 @@ npm run build
 
 ### Author
 
-Brad Traversy
-[Traversy Media](http://www.traversymedia.com)
+
+MOCKCODER
 
 ### Version
 
@@ -28,4 +28,4 @@ Brad Traversy
 
 ### License
 
-This project is licensed under the MIT License
+
