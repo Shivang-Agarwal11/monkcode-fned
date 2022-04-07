@@ -9,6 +9,8 @@ import  UserForm  from './components/Form/UserForm/UserForm';
 import SignUpContainer from './components/SignUp/SignUpContainer'
 import LoginFormContainer from './components/LoginForm/LoginFormContainer';
 import Navbar from './components/NavBar/NavBar';
+import Discuss from './components/Discuss/Discuss';
+import Contact from './components/Contact/Contact';
 
 
 const App = () => {
@@ -27,6 +29,8 @@ const App = () => {
     <Router>
     <Routes>
       <Route path="/" element={<Navbar/>}/>
+      <Route path="/discuss" element={<Discuss/>}/>
+      <Route path="/contact" element={<Contact/>}/>
       <Route path='/login' element={<LoginFormContainer/>}/>
     <Route path='/signup' element={<SignUpContainer/>}/>
     <Route path='/resumebuilder' element={<UserForm/>}/>

@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {MenuItems} from './MenuItems';
 import "./NavBar.css";
 import {FaBookReader} from "react-icons/fa";
+import { Carousels } from '../Carousel/Carousel';
+import Jobs from '../Jobs/Jobs';
 
 class Navbar extends Component{
     state = { clicked:false }
@@ -12,7 +14,7 @@ class Navbar extends Component{
     render(){
         
         return(
-            
+            <React.Fragment>
             <nav className='NavbarItems'>
 
                 <h1 className='navbar-logo'>FLEX learning<FaBookReader size={35} className='navbar-logo'/></h1>
@@ -33,7 +35,9 @@ class Navbar extends Component{
                     })}
                 </ul>
             </nav>
-            
+            <Carousels/>
+            <Jobs/>
+            </React.Fragment>
         )
     };
 }
