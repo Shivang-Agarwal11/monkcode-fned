@@ -18,7 +18,7 @@ export const MenuItems = [
         cname: 'nav-links'
     },
     {
-        name: <MdAccountCircle size={23}/>,
+        name: <MdAccountCircle size={25}/>,
         url: '/profile',
         cname: 'nav-links'
     },
