@@ -1,6 +1,6 @@
 import { MdAccountCircle } from "react-icons/md";
 import React from "react";
-import { NavLink } from "react-router-dom";
+
 export const MenuItems = [
     {
         name: 'Home',
@@ -19,7 +19,7 @@ export const MenuItems = [
     },
     {
         name: <MdAccountCircle size={25}/>,
-        url: '#',
+        url: '/profile',
         cname: 'nav-links'
     },
 ]
