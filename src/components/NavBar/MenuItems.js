@@ -1,19 +1,20 @@
 import { MdAccountCircle } from "react-icons/md";
 import React from "react";
+import { NavLink } from "react-router-dom";
 export const MenuItems = [
     {
         name: 'Home',
-        url: '#',
+        url: "/",
         cname: 'nav-links'
     },
     {
         name: 'Discuss',
-        url: '#',
+        url: '/discuss',
         cname: 'nav-links'
     },
     {
         name: 'Contact Us',
-        url: '#',
+        url: '/contact',
         cname: 'nav-links'
     },
     {
