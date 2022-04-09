@@ -3,7 +3,6 @@ import Personal from '../Personal/Personal';
 import Academic from '../Academic/Academic';
 import Experience from '../Experience/Experience';
 import Skills from '../Skills/Skills';
-
 import Awards from '../Awards/Awards';
 import Certification from '../Certification/Certification';
 import { Card, CardContent } from '@material-ui/core';
@@ -14,6 +13,7 @@ import { MuiThemeProvider ,createTheme} from '@material-ui/core';
 import { CssBaseline } from '@material-ui/core';
 import { Languages } from '../Languages/Languages';
 import { Interests } from '../Interests/Interests';
+const axios = require("axios");
 
 export class UserForm extends Component {
     state={
@@ -25,7 +25,7 @@ export class UserForm extends Component {
         city:'',
         state:'',
         country:'',
-        contact:'',
+        contactNo:'',
     },
         qualiDetails:[
 ],
@@ -71,6 +71,37 @@ export class UserForm extends Component {
           editing:true
         })
       }
+      onSubmitForm=(event)=>{
+        event.preventDefault()
+        const data={...this.state.profile,educations:this.state.qualiDetails,workExperience:this.state.company,skills:this.state.skils,achievements:this.state.award,
+          certificates:this.state.certificates,interests:this.state.interests,languages:this.state.languages}
+         const headers={
+          'Content-Type': 'application/json',
+           "Authorization":"Aearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjUwM2U5YTA2NDAyY2NkNjU2ZmNiMjEiLCJpYXQiOjE2NDk0MjYwNzR9.d6Y2oGmaLVFyUxo4sgnyop8STnEUo9TDeHmUeHOtCKM",
+         }
+          console.log(data)
+          axios
+            .post("https://monkcoder.herokuapp.com/resume/create", JSON.stringify({data}),{headers:headers})
+            .then(res => {
+              console.log(res.data)
+              if (res.data.response.code === 201) {
+                localStorage.token = res.data.token;
+                localStorage.isAuthenticated = true;
+                console.log(localStorage.token)
+                // window.location.reload();
+              } else {
+                console.log("ERROR")
+                this.setState({
+                  errors: { message: res.data.message }
+                });
+              }
+            })
+            .catch(err => {
+              console.log("Sign up data submit error: ", err);
+            });
+        }
+      
+      
     onAwardAdd=()=>{
         this.setState({
           awardAdd:true
@@ -171,17 +202,17 @@ export class UserForm extends Component {
     }
 
   render() {
-      // console.log(this.state.skills)
+      console.log(this.state)
       const themeLight = createTheme({
         palette: {
           background: {
-            default: "#e3f2fd"
+            default: "#E0E0E0"
           }
         }
       });
       
             return(
-              <form>
+              <form onSubmit={this.onSubmitForm}>
                 <React.Fragment>
                 <Personal
                 handleChange={this.handleChangeProfile}
@@ -346,7 +377,7 @@ export class UserForm extends Component {
          </Box>
                </MuiThemeProvider>
                 <Box textAlign='center' pb={5} pt={2}>
-               <Button onSubmit={this.onSubmitForm} color="primary" variant='contained' type='submit' size='large'>Submit</Button> 
+                <button type="submit">Submit</button>
                </Box>
                 </React.Fragment>
             </form>

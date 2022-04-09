@@ -76,13 +76,7 @@ const SignUpForm = ({
         />
         
         <div  className="signUpSubmit">
-        <Button
-         
-          color='primary'
-          variant='contained'
-          type="submit"
-          label="submit"
-        >Submit</Button>
+        <button type="submit">Submit</button>
         </div>
       </form>
       <p>

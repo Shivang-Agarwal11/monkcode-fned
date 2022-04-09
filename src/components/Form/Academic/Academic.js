@@ -26,7 +26,7 @@ export class Academic extends Component {
     }
       
       render() {
-        console.log(this.state)
+        // console.log(this.state)
         
         return (
          

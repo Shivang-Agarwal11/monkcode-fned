@@ -65,15 +65,19 @@ class SignUpContainer extends Component {
   }
 
   submitSignup(user) {
-    var params = { username: user.usr, password: user.pw, email: user.email };
+    var params = { name: user.username, password: user.password, email: user.email };
+    // console.log(params)
     axios
-      .post("https://ouramazingserver.com/api/signup/submit", params)
+      .post("https://monkcoder.herokuapp.com/user/create", params)
       .then(res => {
-        if (res.data.success === true) {
+        console.log(res.data)
+        if (res.data.response.code === 201) {
           localStorage.token = res.data.token;
           localStorage.isAuthenticated = true;
-          window.location.reload();
+          console.log(localStorage.token)
+          // window.location.reload();
         } else {
+          console.log("ERROR")
           this.setState({
             errors: { message: res.data.message }
           });
@@ -92,8 +96,8 @@ class SignUpContainer extends Component {
         errors: {}
       });
       var user = {
-        usr: this.state.user.username,
-        pw: this.state.user.password,
+        username: this.state.user.username,
+        password: this.state.user.password,
         email: this.state.user.email
       };
       this.submitSignup(user);
@@ -116,7 +120,7 @@ class SignUpContainer extends Component {
   }
 
   render() {
-      console.log('HERE')
+      
     return (
       <div>
         <SignUpForm
