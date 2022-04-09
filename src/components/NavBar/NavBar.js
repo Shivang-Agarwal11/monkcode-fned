@@ -2,14 +2,19 @@ import React, {Component} from 'react';
 import {MenuItems} from './MenuItems';
 import "./NavBar.css";
 import {FaBookReader} from "react-icons/fa";
+import { MdAccountCircle } from 'react-icons/md';
 import { Carousels } from '../Carousel/Carousel';
 import Jobs from '../Jobs/Jobs';
-
+import { NavLink } from 'react-router-dom';
 class Navbar extends Component{
     state = { clicked:false }
     
     handleClick = () =>{
         this.setState({clicked: !this.state.clicked})
+    }
+    displayprofile = () =>{
+        const profile=document.querySelector('.profile-box');
+        profile.classList.toggle('visible');
     }
     render(){
         
@@ -34,9 +39,25 @@ class Navbar extends Component{
                         );
                     })}
                 </ul>
+                <div className="profile-icon" onClick={this.displayprofile}>
+                   <MdAccountCircle size={35}/>
+                </div>
+                <div className="profile-box">
+                    <h2>UserName</h2>
+                    <ul>
+                        <li><NavLink to='/home'>Edit Profile</NavLink></li>
+                        <li><NavLink to='/resumebuilder'>Resume Builder</NavLink></li>
+                        <li><NavLink to='/home'>My Courses</NavLink></li>
+                        <li><NavLink to='/home'>My Certifications</NavLink></li>
+                        <li><button className="btn">LOGOUT</button></li>
+                    </ul>
+                </div>
             </nav>
+            <div className='carousel'>
             <Carousels/>
+            </div>
             <Jobs/>
+            
             </React.Fragment>
         )
     };

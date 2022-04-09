@@ -2,7 +2,13 @@ import React, { Component } from 'react'
 import ReactElasticCarousel from 'react-elastic-carousel';
 import Item from './Item'
 import './Carousels.css'
-
+import c1 from './c1.jpg'
+import c2 from './c2.jpg'
+import c3 from './c3.jpg'
+import c4 from './c4.jpg'
+import c5 from './c5.png'
+import c6 from './c6.png'
+import c7 from './c7.jpg'
 export class Carousels extends Component {
     
   render() {
@@ -17,14 +23,13 @@ export class Carousels extends Component {
         <h1 className='car-h1'>Courses</h1>
         <div className="Carousel">
           <ReactElasticCarousel breakPoints={breakPoints}>
-            <Item>One</Item>
-            <Item>Two</Item>
-            <Item>Three</Item>
-            <Item>Four</Item>
-            <Item>Five</Item>
-            <Item>Six</Item>
-            <Item>Seven</Item>
-            <Item>Eight</Item>
+            <Item><img src={c1} height={200} width={300} alt='job'/></Item>
+            <Item><img src={c2} alt='job'/></Item>
+            <Item><img src={c3} alt='job'/></Item>
+            <Item><img src={c4} alt='job'/></Item>
+            <Item><img src={c5} alt='job'/></Item>
+            <Item><img src={c6} alt='job'/></Item>
+            <Item><img src={c7} alt='job'/></Item>
           </ReactElasticCarousel>
         </div>
         </div>

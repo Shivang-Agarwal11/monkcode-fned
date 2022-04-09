@@ -1,14 +1,26 @@
 import React, { Component } from 'react'
 import { TextField } from '@material-ui/core'
-import { Button } from '@material-ui/core'
+// import { Button } from '@material-ui/core'
 // import { Link,BrowserRouter as Router,Routes,Route } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+
+import './LoginForm.css'
+// import { useNavigate } from 'react-router-dom';
+const axios = require("axios");
+// const navigate=useNavigate()
 export class LoginFormContainer extends Component {
-    state={
+  constructor(props){
+    super(props);
+    
+    this.state={
         user:{email:'',
         password:''
-    }
-    }
+    },
+    errors:''
+    };
+    this.onSubmitHandle=this.onSubmitHandle.bind(this);
+    this.onSubmitHandle1=this.onSubmitHandle1.bind(this);
+  }
     handleChange=(input)=>e=>{
         const user=this.state.user
         user[input]=e.target.value
@@ -17,16 +29,49 @@ export class LoginFormContainer extends Component {
         }))
 
     }
-    onSubmit(event){
-        event.preventDefault();
+    onSubmitHandle1(event){
+      event.preventDefault();
+      this.onSubmitHandle(this.state)
     }
+    onSubmitHandle(input){
+      // event.preventDefault();
+      console.log(input)
+      // var params = { password: input.user.password, email: input.user.email };
+      // console.log(params)
+      axios
+        .post("https://monkcoder.herokuapp.com/user", JSON.stringify(this.state.user))
+        .then(res => {
+          console.log(res.data)
+          if (res.data.response.code === 200) {
+            localStorage.setItem("token", JSON.stringify(res.data.token));
+            // navigate("/")
+            window.location.reload();
+            // localStorage.token = res.data.token;
+            // localStorage.isAuthenticated = true;
+            console.log(localStorage.token)
+            // window.location.reload();
+          } else {
+            console.log("ERROR")
+            this.setState({
+              errors: { message: res.data.message }
+            });
+          }
+        })
+        .catch(err => {
+          console.log("Log in Error: ", err);
+        });
+    }
+  
+
+    
   render() {
+    // console.log(this.state)
     return (
         <div className="loginBox">
         <h1>Log in</h1>
        
   
-        <form onSubmit={this.onSubmit}>
+        <form onSubmit={this.onSubmitHandle1}>
           <TextField
             name="email"
             label="email"
@@ -45,14 +90,8 @@ export class LoginFormContainer extends Component {
             // error={errors.password}
             />
             <br/>
-            <div  className="signUpSubmit">
-        <Button
-         
-          color='primary'
-          variant='contained'
-          type="submit"
-          label="submit"
-        >Submit</Button>
+            <div  className="login">
+       <button type='submit'>Submit</button>
         </div>
             </form>
         {/* <Router>

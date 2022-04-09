@@ -12,6 +12,8 @@ import Navbar from './components/NavBar/NavBar';
 import Discuss from './components/Discuss/Discuss';
 import Contact from './components/Contact/Contact';
 
+import Verification from './components/Verification/Verification';
+
 
 const App = () => {
   // const themeLight = createTheme({
@@ -28,11 +30,12 @@ const App = () => {
     //   <CssBaseline/>
     <Router>
     <Routes>
-      <Route path="/" element={<Navbar/>}/>
+      <Route path="/home" element={<Navbar/>}/>
       <Route path="/discuss" element={<Discuss/>}/>
       <Route path="/contact" element={<Contact/>}/>
       <Route path='/login' element={<LoginFormContainer/>}/>
     <Route path='/signup' element={<SignUpContainer/>}/>
+    <Route path='/' element={<Verification/>}/>
     <Route path='/resumebuilder' element={<UserForm/>}/>
       
       </Routes>  

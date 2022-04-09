@@ -1,5 +1,5 @@
-import { MdAccountCircle } from "react-icons/md";
-import React from "react";
+
+
 
 export const MenuItems = [
     {
@@ -17,9 +17,5 @@ export const MenuItems = [
         url: '/contact',
         cname: 'nav-links'
     },
-    {
-        name: <MdAccountCircle size={25}/>,
-        url: '/profile',
-        cname: 'nav-links'
-    },
+   
 ]

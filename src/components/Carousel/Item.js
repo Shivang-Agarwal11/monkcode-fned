@@ -8,7 +8,7 @@ export default styled.div`
   width: 100%;
   border:1px sold black;
   border-radius:10px;
-  background-color: #00008B;
+  // background-color: #E0E0E0;
   color: #fff;
   margin: 0 15px;
   font-size: 4em;
