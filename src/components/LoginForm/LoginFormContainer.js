@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { TextField } from '@material-ui/core'
 // import { Button } from '@material-ui/core'
 // import { Link,BrowserRouter as Router,Routes,Route } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { Navigate, NavLink } from "react-router-dom";
 
 import './LoginForm.css'
 // import { useNavigate } from 'react-router-dom';
@@ -16,7 +16,8 @@ export class LoginFormContainer extends Component {
         user:{email:'',
         password:''
     },
-    errors:''
+    errors:'',
+    loggedin:false
     };
     this.onSubmitHandle=this.onSubmitHandle.bind(this);
     this.onSubmitHandle1=this.onSubmitHandle1.bind(this);
@@ -35,20 +36,25 @@ export class LoginFormContainer extends Component {
     }
     onSubmitHandle(input){
       // event.preventDefault();
-      console.log(input)
-      // var params = { password: input.user.password, email: input.user.email };
+      // console.log(JSON.stringify(input.user))
+      var params = { password: input.user.password, email: input.user.email };
       // console.log(params)
       axios
-        .post("https://monkcoder.herokuapp.com/user", JSON.stringify(this.state.user))
+        .post("https://monkcoder.herokuapp.com/user", params)
         .then(res => {
-          console.log(res.data)
+          // console.log(res)
           if (res.data.response.code === 200) {
             localStorage.setItem("token", JSON.stringify(res.data.token));
             // navigate("/")
-            window.location.reload();
+            console.log()
+            this.setState({
+              loggedin:true
+            })
+            // window.location.reload();
             // localStorage.token = res.data.token;
             // localStorage.isAuthenticated = true;
-            console.log(localStorage.token)
+            // console.log(localStorage.token)
+            
             // window.location.reload();
           } else {
             console.log("ERROR")
@@ -68,6 +74,7 @@ export class LoginFormContainer extends Component {
     // console.log(this.state)
     return (
         <div className="loginBox">
+          {this.state.loggedin?<Navigate to='/verification'/>:""}
         <h1>Log in</h1>
        
   
@@ -91,7 +98,7 @@ export class LoginFormContainer extends Component {
             />
             <br/>
             <div  className="login">
-       <button type='submit'>Submit</button>
+       <button type='submit'>Log in</button>
         </div>
             </form>
         {/* <Router>

@@ -33,9 +33,9 @@ const App = () => {
       <Route path="/home" element={<Navbar/>}/>
       <Route path="/discuss" element={<Discuss/>}/>
       <Route path="/contact" element={<Contact/>}/>
-      <Route path='/login' element={<LoginFormContainer/>}/>
+      <Route path='/' element={<LoginFormContainer/>}/>
     <Route path='/signup' element={<SignUpContainer/>}/>
-    <Route path='/' element={<Verification/>}/>
+    <Route path='/verification' element={<Verification/>}/>
     <Route path='/resumebuilder' element={<UserForm/>}/>
       
       </Routes>  

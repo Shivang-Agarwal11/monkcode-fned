@@ -81,7 +81,7 @@ const SignUpForm = ({
       </form>
       <p>
         Aleady have an account? <br/>
-        <NavLink to="/login">Login</NavLink>
+        <NavLink to="/">Login</NavLink>
       </p>
     </div>
   );

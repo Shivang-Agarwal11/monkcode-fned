@@ -5,9 +5,10 @@ import {FaBookReader} from "react-icons/fa";
 import { MdAccountCircle } from 'react-icons/md';
 import { Carousels } from '../Carousel/Carousel';
 import Jobs from '../Jobs/Jobs';
-import { NavLink } from 'react-router-dom';
+import { Navigate, NavLink } from 'react-router-dom';
 class Navbar extends Component{
-    state = { clicked:false }
+    state = { clicked:false,
+    loggedOut:false }
     
     handleClick = () =>{
         this.setState({clicked: !this.state.clicked})
@@ -16,10 +17,19 @@ class Navbar extends Component{
         const profile=document.querySelector('.profile-box');
         profile.classList.toggle('visible');
     }
+    logoutHandler=()=>{
+        console.log()
+        localStorage.removeItem("token")
+        this.setState({
+            loggedOut:true
+        })
+    }
     render(){
         
         return(
             <React.Fragment>
+                {this.state.loggedOut===true?<Navigate to='/'/>:
+                <div>
             <nav className='NavbarItems'>
 
                 <h1 className='navbar-logo'>FLEX learning<FaBookReader size={35} className='navbar-logo'/></h1>
@@ -49,7 +59,7 @@ class Navbar extends Component{
                         <li><NavLink to='/resumebuilder'>Resume Builder</NavLink></li>
                         <li><NavLink to='/home'>My Courses</NavLink></li>
                         <li><NavLink to='/home'>My Certifications</NavLink></li>
-                        <li><button className="btn">LOGOUT</button></li>
+                        <li><form onSubmit={this.logoutHandler}><button className="btn"type='submit'>LOGOUT</button></form></li>
                     </ul>
                 </div>
             </nav>
@@ -57,7 +67,8 @@ class Navbar extends Component{
             <Carousels/>
             </div>
             <Jobs/>
-            
+            </div>
+                }
             </React.Fragment>
         )
     };
