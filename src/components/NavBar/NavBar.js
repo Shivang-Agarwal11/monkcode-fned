@@ -59,7 +59,7 @@ class Navbar extends Component{
                         <li><NavLink to='/resumebuilder'>Resume Builder</NavLink></li>
                         <li><NavLink to='/home'>My Courses</NavLink></li>
                         <li><NavLink to='/home'>My Certifications</NavLink></li>
-                        <li><form onSubmit={this.logoutHandler}><button className="btn"type='submit'>LOGOUT</button></form></li>
+                        <li><form onSubmit={this.logoutHandler} className='nav-form'><button className="nav-btn"type='submit'>LOGOUT</button></form></li>
                     </ul>
                 </div>
             </nav>

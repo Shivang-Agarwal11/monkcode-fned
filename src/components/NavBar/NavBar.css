@@ -40,16 +40,19 @@
 .menu-icon{
     display: none;
 }
-.btn{
+.nav-btn{
     color: black;
     text-decoration: none;
-    padding: 8px 10px;
+    padding: 4px 5px;
     border-radius: 4px;
     /* outline: none; */
     border: 1.5px solid rgb(13, 13, 13);
     cursor: pointer;
 }
-.btn:hover{
+.nav-form{
+    padding: 8px 10px;
+}
+.nav-btn:hover{
     transition: all 0.3s ease-out;
     color: #fff;
     background-color: rgb(15,15,15);
@@ -168,7 +171,7 @@
         font-size: 1.8rem;
         cursor: pointer;
     }
-    .btn{
+    .nav-btn{
         color: #fff;
     }
     
