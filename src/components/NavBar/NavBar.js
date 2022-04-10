@@ -55,7 +55,7 @@ class Navbar extends Component{
                 <div className="profile-box">
                     <h2>UserName</h2>
                     <ul>
-                        <li><NavLink to='/home'>Edit Profile</NavLink></li>
+                        <li><NavLink to='/home'>Profile</NavLink></li>
                         <li><NavLink to='/resumebuilder'>Resume Builder</NavLink></li>
                         <li><NavLink to='/home'>My Courses</NavLink></li>
                         <li><NavLink to='/home'>My Certifications</NavLink></li>
