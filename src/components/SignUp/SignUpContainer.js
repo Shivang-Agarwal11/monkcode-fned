@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import SignUpForm from "./SignUpForm.js";
+import { Navigate } from "react-router-dom";
 const axios = require("axios");
 const FormValidators = require("./validate");
 const validateSignUpForm = FormValidators.validateSignUpForm;
@@ -19,7 +20,8 @@ class SignUpContainer extends Component {
       },
       btnTxt: "show",
       type: "password",
-      score: "0"
+      score: "0",
+      toLogin:false
     };
 
     this.pwMask = this.pwMask.bind(this);
@@ -65,18 +67,22 @@ class SignUpContainer extends Component {
   }
 
   submitSignup(user) {
-    var params = { name: user.username, password: user.password, email: user.email };
-    // console.log(params)
+    var params = { name: user.username,  email: user.email,password: user.password };
+    console.log(params)
     axios
       .post("https://monkcoder.herokuapp.com/user/create", params)
       .then(res => {
         console.log(res.data)
         if (res.data.response.code === 201) {
-          localStorage.token = res.data.token;
-          localStorage.isAuthenticated = true;
-          console.log(localStorage.token)
+          // localStorage.token = res.data.token;
+          // localStorage.isAuthenticated = true;
+          // console.log(localStorage.token)
+          this.setState({
+            toLogin:true
+          })
           // window.location.reload();
-        } else {
+        } 
+         else {
           console.log("ERROR")
           this.setState({
             errors: { message: res.data.message }
@@ -84,7 +90,11 @@ class SignUpContainer extends Component {
         }
       })
       .catch(err => {
-        console.log("Sign up data submit error: ", err);
+        var d=(JSON.parse(JSON.stringify(err)));
+        this.setState({
+          errors:{code:d.status}
+        })
+        // console.log(JSON.stringify(err));
       });
   }
 
@@ -123,6 +133,8 @@ class SignUpContainer extends Component {
       
     return (
       <div>
+        {this.state.errors.code===400?alert('User Already Exists. Please login'):''}
+        {this.state.toLogin && <Navigate to="/" replace={true}/>}
         <SignUpForm
           onSubmit={this.validateForm}
           onChange={this.handleChange}
