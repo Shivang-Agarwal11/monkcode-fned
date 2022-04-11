@@ -19,8 +19,19 @@ export class AddMessage extends Component {
         message:{...prevState.message}
     }))
   }
+  onSubmitH=()=>{
+    let val=this.state.message.name
+    // console.log(val)
+    let message=this.state.message
+    message['name']=''
+    this.setState(prevState=>({
+      message:{...prevState.message}
+    }))
+    this.props.onSubmit(val)
+  }
+  
   render() {
-    console.log(this.state.message)
+    // console.log(this.state.message)
     return (
       <div className='discuss-container'>
         <TextField 
@@ -31,7 +42,7 @@ export class AddMessage extends Component {
         margin="normal"
         fullWidth
         />
-        <Button onClick={this.props.onSubmit(this.state.message.name)}>Post</Button>
+        <Button onClick={this.onSubmitH}>Post</Button>
       </div>
     )
   }

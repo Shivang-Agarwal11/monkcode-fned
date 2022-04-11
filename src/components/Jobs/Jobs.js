@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import ReactElasticCarousel from 'react-elastic-carousel';
 import Item from '../Carousel/Item'
 import '../Carousel/Carousels.css'
-import c1 from '../Carousel/c1.jpg'
-import c2 from '../Carousel/c2.jpg'
-import c3 from '../Carousel/c3.jpg'
-import c4 from '../Carousel/c4.jpg'
-import c5 from '../Carousel/c5.png'
-import c6 from '../Carousel/c6.png'
-import c7 from '../Carousel/c7.jpg'
+import j1 from './j1.png'
+import j2 from './j2.svg'
+import j3 from './j3.png'
+import j4 from './j4.png'
+import j5 from './j5.jpg'
+import j6 from './j6.png'
+import j7 from './j7.png'
 export class Carousels extends Component {
     
   render() {
@@ -23,13 +23,13 @@ export class Carousels extends Component {
         <h1 className='car-h1'>Jobs</h1>
         <div className="Carousel">
           <ReactElasticCarousel breakPoints={breakPoints}>
-            <Item><img src={c4} className='image' alt='job'/></Item>
-            <Item><img src={c5} className='image' alt='job'/></Item>
-            <Item><img src={c7}  className='image' alt='job'/></Item>
-            <Item><img src={c1} className='image' alt='job'/></Item>
-            <Item><img src={c2} className='image' alt='job'/></Item>
-            <Item><img src={c6} className='image' alt='job'/></Item>
-            <Item><img src={c3} className='image' alt='job'/></Item>
+            <Item><img src={j1} className='image' alt='job'/></Item>
+            <Item><img src={j2} className='image' alt='job'/></Item>
+            <Item><img src={j3}  className='image' alt='job'/></Item>
+            <Item><img src={j4} className='image' alt='job'/></Item>
+            <Item><img src={j5} className='image' alt='job'/></Item>
+            <Item><img src={j6} className='image' alt='job'/></Item>
+            <Item><img src={j7} className='image' alt='job'/></Item>
           </ReactElasticCarousel>
         </div>
         </div>

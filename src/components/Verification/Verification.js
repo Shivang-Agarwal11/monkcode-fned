@@ -30,7 +30,7 @@ export class Verification extends Component {
       increment() {
         const progress = this.state.progress > 100 ?  this.setState({
           progressval:true
-        }): (this.state.progress + 1);
+        }): (this.state.progress + 10);
         this.setState({
           progress
         });

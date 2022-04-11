@@ -14,31 +14,24 @@ import Contact from './components/Contact/Contact';
 
 import Verification from './components/Verification/Verification';
 import Profile from './components/Profile/Profile';
+import Landing from './components/Landing/Landing';
 
 
 const App = () => {
-  // const themeLight = createTheme({
-  //   palette: {
-  //     background: {
-  //       default: "#e3f2fd"
-  //     }
-  //   }
-  // });
   
   
   return (
-    // <MuiThemeProvider theme={themeLight}>
-    //   <CssBaseline/>
     <Router>
     <Routes>
       <Route path="/home" element={<Navbar/>}/>
       <Route path="/discuss" element={<Discuss/>}/>
       <Route path="/contact" element={<Contact/>}/>
-      <Route path='/' element={<LoginFormContainer/>}/>
+      <Route path='/login' element={<LoginFormContainer/>}/>
     <Route path='/signup' element={<SignUpContainer/>}/>
     <Route path='/verification' element={<Verification/>}/>
     <Route path='/resumebuilder' element={<UserForm/>}/>
     <Route path='/profile' element={<Profile/>}/>
+    <Route path='/' element={<Landing/>}/>
       
       </Routes>  
     </Router>

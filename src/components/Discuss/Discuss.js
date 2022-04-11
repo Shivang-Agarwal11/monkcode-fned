@@ -12,7 +12,9 @@ export class Discuss extends Component {
     ]
   }
 
-  onAdd=(input)=>e=>{
+  onAdd=(input)=>{
+    
+    // console.log(input)
     let messages=this.state.messages
       messages.push(input)
       this.setState(prevState=>({
