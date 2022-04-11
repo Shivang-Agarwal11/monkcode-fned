@@ -1,11 +1,12 @@
 .profile-sidebar{
     height: 650px;
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     padding-right: 10px;
     /* background-color: black;c */
 }
 .profile-img{
     padding-left: 180px;
-   
+    height: 650px;
+    width: 650px;
 }
