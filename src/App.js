@@ -13,6 +13,7 @@ import Discuss from './components/Discuss/Discuss';
 import Contact from './components/Contact/Contact';
 
 import Verification from './components/Verification/Verification';
+import Profile from './components/Profile/Profile';
 
 
 const App = () => {
@@ -37,6 +38,7 @@ const App = () => {
     <Route path='/signup' element={<SignUpContainer/>}/>
     <Route path='/verification' element={<Verification/>}/>
     <Route path='/resumebuilder' element={<UserForm/>}/>
+    <Route path='/profile' element={<Profile/>}/>
       
       </Routes>  
     </Router>
