@@ -46,7 +46,7 @@ export class LoginFormContainer extends Component {
           if (res.data.response.code === 200) {
             localStorage.setItem("token", JSON.stringify(res.data.token));
             // navigate("/")
-            console.log()
+            localStorage.setItem("name",(res.data.user.name))
             this.setState({
               loggedin:true
             })

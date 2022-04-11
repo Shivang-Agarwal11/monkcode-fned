@@ -53,7 +53,7 @@ class Navbar extends Component{
                    <MdAccountCircle size={34}/>
                 </div>
                 <div className="profile-box">
-                    <h2>UserName</h2>
+                    <h2>{localStorage.getItem('name')}</h2>
                     <ul>
                         <li><NavLink to='/profile'>Profile</NavLink></li>
                         <li><NavLink to='/resumebuilder'>Resume Builder</NavLink></li>
