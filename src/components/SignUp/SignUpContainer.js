@@ -134,7 +134,7 @@ class SignUpContainer extends Component {
     return (
       <div>
         {this.state.errors.code===400?alert('User Already Exists. Please login'):''}
-        {this.state.toLogin && <Navigate to="/" replace={true}/>}
+        {this.state.toLogin && <Navigate to="/login" replace={true}/>}
         <SignUpForm
           onSubmit={this.validateForm}
           onChange={this.handleChange}
