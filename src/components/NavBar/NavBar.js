@@ -50,7 +50,7 @@ class Navbar extends Component{
                     })}
                 </ul>
                 <div className="profile-icon" onClick={this.displayprofile}>
-                   <MdAccountCircle size={35}/>
+                   <MdAccountCircle size={34}/>
                 </div>
                 <div className="profile-box">
                     <h2>UserName</h2>
