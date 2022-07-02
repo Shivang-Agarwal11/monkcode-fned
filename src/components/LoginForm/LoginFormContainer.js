@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { TextField } from '@material-ui/core'
 import { Button } from '@material-ui/core'
 import { Navigate, Link } from "react-router-dom";
-import { FormControl} from '@mui/material';
+import { FormControl} from '@material-ui/core';
 import './LoginForm.css'
 const axios = require("axios");
 export class LoginFormContainer extends Component {
