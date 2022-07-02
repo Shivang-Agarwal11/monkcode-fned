@@ -205,16 +205,13 @@ export class UserForm extends Component {
   }
 
   render() {
-
-    return (
-      
+    return ( 
         <React.Fragment>
           <Personal
             handleChange={this.handleChangeProfile}
             values={this.state.profile} />
             <Box pt={3} textAlign='center'>
             <Box ml={20} mr={20} pt={10}>
-              
                 <Card variant='elevation' elevation={6}>
                   <CardContent>
                     <AppBars values={"Academic History"}/>
