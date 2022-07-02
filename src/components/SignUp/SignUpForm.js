@@ -82,7 +82,7 @@ const SignUpForm = ({
       <p style={{"margin":"10px"}}>
         Aleady have an account?
       </p>
-        <Link to="/login" style={{ textDecoration: 'none',fontSize:'19px', color:"#2C3639",width:"150px",marginLeft:"240px"}}>Login</Link>
+        <Link to="/login" style={{ textDecoration: 'none',fontSize:'19px', color:"#2C3639",width:"150px",marginLeft:"200px"}}>Login</Link>
     </div>
   );
 };

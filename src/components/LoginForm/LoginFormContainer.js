@@ -113,7 +113,7 @@ export class LoginFormContainer extends Component {
         {/* </form> */}
         <p style={{"margin":"10px"}}>New User?</p>
 
-        <Link to="/signup" style={{ textDecoration: 'none',fontSize:'19px', color:"#2C3639",width:"150px",marginLeft:"240px"}}>Register Here</Link>
+        <Link to="/signup" style={{ textDecoration: 'none',fontSize:'19px', color:"#2C3639",width:"150px",marginLeft:"200px"}}>Register Here</Link>
       </div>
        
     )
