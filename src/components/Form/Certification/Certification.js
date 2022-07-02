@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Box } from '@material-ui/core';
+
 import { Button } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 
@@ -54,9 +54,9 @@ export class Certification extends Component {
                 fullWidth
                 />
               <br/>
-              <Box pt={1} textAlign='center'>
-              <Button onClick={this.props.handleChange(this.state.certificate)} color="primary" variant='contained'>Add Fields</Button>
-              </Box>
+              
+              <Button onClick={this.props.handleChange(this.state.certificate)} color="primary" variant='contained' style={{"margin":"20px","fontWeight":"700"}}>Add Fields</Button>
+              
               </div>
         );
       }

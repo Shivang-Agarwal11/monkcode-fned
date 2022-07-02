@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 
 import { Button } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
-import { Box } from '@material-ui/core';
 
 export class Awards extends Component {
 
@@ -66,9 +65,9 @@ export class Awards extends Component {
                 fullWidth
                 />
               <br/>
-              <Box pt={1} textAlign='center'>
-              <Button onClick={this.props.handleChange(this.state.awards)} color="primary" variant='contained'>Add Fields</Button>
-              </Box>
+              
+              <Button onClick={this.props.handleChange(this.state.awards)} color="primary" variant='contained' style={{"margin-top":"20px","fontWeight":"700"}}>Add Fields</Button>
+              
               </div>
         );
       }

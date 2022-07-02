@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ReactElasticCarousel from 'react-elastic-carousel';
+
 import Item from './Item'
 import './Carousels.css'
 import c1 from './c1.jpg'
@@ -18,18 +19,16 @@ export class Carousels extends Component {
         { width: 768, itemsToShow: 3 },
         { width: 1200, itemsToShow: 4 },
       ];
+
+      const images=[c1,c2,c3,c4,c5,c6,c7];
     return (
         <div>
         <h1 className='car-h1'>Courses</h1>
         <div className="Carousel">
           <ReactElasticCarousel breakPoints={breakPoints}>
-            <Item><img src={c1} className='image'  alt='job'/></Item>
-            <Item><img src={c2}  className='image' alt='job'/></Item>
-            <Item><img src={c3}  className='image' alt='job'/></Item>
-            <Item><img src={c4}  className='image' alt='job'/></Item>
-            <Item><img src={c5}  className='image' alt='job'/></Item>
-            <Item><img src={c6} className='image' alt='job'/></Item>
-            <Item><img src={c7}  className='image'alt='job'/></Item>
+            {images.map((image)=>
+            <Item><img src={image} className="image" alt="course"/> </Item>
+            )}
           </ReactElasticCarousel>
         </div>
         </div>

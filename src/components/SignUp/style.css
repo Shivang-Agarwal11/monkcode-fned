@@ -1,16 +1,21 @@
-form {
-    width: 100%;
-  }
+
   
-  .loginBox {
-    width: 50%;
+  .signUpBox {
+    display: flex;
+    flex-direction: column;
+    /* height: 350px; */
+    width: 35%;
+    text-align: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgb(212, 221, 230);
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+   
     text-align: center;
     position: relative;
     left: 50%;
     transform: translate(-50%, 20%);
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.4);
   }
   
   .signUpSubmit {

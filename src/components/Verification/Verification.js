@@ -48,7 +48,7 @@ export class Verification extends Component {
         <div>
             {this.state.progressval===true?(
             <div className='page-profile-box'><Box pt={1} textAlign='center'>
-              <NavLink to='/home'>
+              <NavLink to='/'>
               <Button>Verification Completed</Button>
               </NavLink>
               </Box>

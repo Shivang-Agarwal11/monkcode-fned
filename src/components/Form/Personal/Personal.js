@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import AppBar from '@material-ui/core/AppBar';
-import {  MuiThemeProvider } from '@material-ui/core';
+
 import TextField from '@material-ui/core/TextField';
 import { Card, CardContent } from '@material-ui/core';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -15,7 +15,7 @@ export class Personal extends Component {
     // console.log(values);
     return (
           <Box ml={20} mr={20} pt={10}>
-        <MuiThemeProvider>
+        
         <Card variant='elevation' elevation={6}>
           <CardContent>
           <AppBar position="static"  style={{ background: '#2E3B55' }}>
@@ -91,7 +91,7 @@ export class Personal extends Component {
           <TextField 
             placeholder="Phone Number"
             label="Contact"
-            onChange={this.props.handleChange('contact')}
+            onChange={this.props.handleChange('contactNo')}
             defaultValue={values.contact}
             margin="normal"
             fullWidth
@@ -100,7 +100,7 @@ export class Personal extends Component {
         
           </CardContent>
         </Card>
-      </MuiThemeProvider>
+      
       </Box>
     );
   }

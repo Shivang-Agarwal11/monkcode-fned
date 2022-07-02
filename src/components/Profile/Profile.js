@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { FaBookReader } from 'react-icons/fa';
-import { MenuItems } from '../NavBar/MenuItems';
 import { FaGem } from 'react-icons/fa';
 import './Profile.css'
 import { Link } from 'react-router-dom';
@@ -13,32 +11,17 @@ export class Profile extends Component {
   render() {
     return (
       <div>
-       <nav className='NavbarItems'>
-
-<h1 className='navbar-logo'>FLEX learning<FaBookReader size={35} className='navbar-logo'/></h1>
-<ul className='nav-menu'>
-    {MenuItems.map((item,index) => {
-        return(
-            <li key={index}>
-             
-                <a className={item.cname} href={item.url}> 
-                {item.name} 
-                </a>
-            </li>
-        );
-    })}
-</ul>
-</nav><div className='profile-sidebar'>
+<div className='profile-sidebar' style={{'margin-top':'30px'}}>
 <ProSidebar >
   <Menu iconShape="square">
     <MenuItem icon={<FaGem />}>Dashboard</MenuItem>
-    {/* <SubMenu title="Components" icon={<FaHeart />}> */}
+    
       <MenuItem>Edit Profile</MenuItem>
       <MenuItem >Job Status <Link to='/verification'/></MenuItem>
       <MenuItem>Edit Resume</MenuItem>
       <MenuItem>Previous Applied Jobs</MenuItem>
       <MenuItem>My Contests</MenuItem>
-    {/* </SubMenu> */}
+    
   </Menu>
 </ProSidebar>
 <div className='profile-img'>

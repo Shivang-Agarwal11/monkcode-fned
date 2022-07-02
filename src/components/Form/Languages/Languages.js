@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Box } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import { Button } from '@material-ui/core';
 
@@ -21,10 +20,8 @@ export class Languages extends Component {
       }
   
       render() {
-        // const {values}=this.props;
-          // console.log(this.state)
         return (
-            <div>
+          <>
               <TextField 
                 placeholder="Type Your Know Language"
                 label="Language"
@@ -34,10 +31,10 @@ export class Languages extends Component {
                 fullWidth
                 />
               <br/>
-              <Box pt={1} textAlign='center'>
-              <Button onClick={this.props.handleChange(this.state.languages.name)} color="primary" variant='contained'>Add</Button>
-              </Box>
-              </div>
+              
+              <Button onClick={this.props.handleChange(this.state.languages.name)} color="primary" variant='contained' style={{"margin":"20px","fontWeight":"700"}}>Add</Button>
+              
+              </>
         );
       }
     

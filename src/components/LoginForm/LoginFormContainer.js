@@ -1,112 +1,121 @@
 import React, { Component } from 'react'
 import { TextField } from '@material-ui/core'
-// import { Button } from '@material-ui/core'
-// import { Link,BrowserRouter as Router,Routes,Route } from "react-router-dom";
-import { Navigate, NavLink } from "react-router-dom";
-
+import { Button } from '@material-ui/core'
+import { Navigate, Link } from "react-router-dom";
+import { FormControl} from '@mui/material';
 import './LoginForm.css'
-// import { useNavigate } from 'react-router-dom';
 const axios = require("axios");
-// const navigate=useNavigate()
 export class LoginFormContainer extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    
-    this.state={
-        user:{email:'',
-        password:''
-    },
-    errors:'',
-    loggedin:false
+
+    this.state = {
+      user: {
+        email: '',
+        password: ''
+      },
+      errors: '',
+      loggedin: false
     };
-    this.onSubmitHandle=this.onSubmitHandle.bind(this);
-    this.onSubmitHandle1=this.onSubmitHandle1.bind(this);
+    this.onSubmitHandle = this.onSubmitHandle.bind(this);
+    this.onSubmitHandle1 = this.onSubmitHandle1.bind(this);
   }
-    handleChange=(input)=>e=>{
-        const user=this.state.user
-        user[input]=e.target.value
-        this.setState(prevState=>({
-            user:{...prevState.user}
-        }))
+  handleChange = (input) => e => {
+    const user = this.state.user
+    user[input] = e.target.value
+    this.setState(prevState => ({
+      user: { ...prevState.user }
+    }))
 
-    }
-    onSubmitHandle1(event){
-      event.preventDefault();
-      this.onSubmitHandle(this.state)
-    }
-    onSubmitHandle(input){
-      // event.preventDefault();
-      // console.log(JSON.stringify(input.user))
-      var params = { password: input.user.password, email: input.user.email };
-      // console.log(params)
-      axios
-        .post("https://monkcoder.herokuapp.com/user", params)
-        .then(res => {
-          // console.log(res)
-          if (res.data.response.code === 200) {
-            localStorage.setItem("token", JSON.stringify(res.data.token));
-            // navigate("/")
-            localStorage.setItem("name",(res.data.user.name))
-            this.setState({
-              loggedin:true
-            })
-            // window.location.reload();
-            // localStorage.token = res.data.token;
-            // localStorage.isAuthenticated = true;
-            // console.log(localStorage.token)
-            
-            // window.location.reload();
-          } else {
-            console.log("ERROR")
-            this.setState({
-              errors: { message: res.data.message }
-            });
-          }
-        })
-        .catch(err => {
-          console.log("Log in Error: ", err);
-        });
-    }
-  
-
+  }
+  onSubmitHandle1(event) {
+    event.preventDefault();
+    this.onSubmitHandle(this.state)
+  }
+  onSubmitHandle(input) {
+    // event.preventDefault();
+    localStorage.removeItem("token")
+    var params = { password: input.user.password, email: input.user.email };
+    console.log(params)
     
+    axios
+      .post("https://monkcoder.herokuapp.com/user", params)
+      .then(res => {
+        // console.log(res)
+        if (res.data.response.code === 200) {
+          localStorage.setItem("token", JSON.stringify(res.data.token));
+          localStorage.setItem("loogedIn",1);
+          localStorage.setItem("name", (res.data.user.name))
+          this.setState({
+            loggedin: true
+          })
+
+        } else {
+          console.log("ERROR")
+          this.setState({
+            errors: { message: res.data.message }
+          });
+        }
+      })
+      .catch(err => {
+        var d = (JSON.parse(JSON.stringify(err)));
+        this.setState({
+          errors: { code: d.status }
+        })
+      });
+  }
+
+
+
   render() {
-    // console.log(this.state)
     return (
-        <div className="loginBox">
-          {this.state.loggedin?<Navigate to='/verification'/>:""}
-        <h1>Log in</h1>
-       
-  
-        <form onSubmit={this.onSubmitHandle1}>
+      
+      <div className="loginBox">
+        {this.state.errors.code===404 && alert('User Not Registered. Please login')}
+        {this.state.errors.code===403 && alert('Wrong Password')}
+        {this.state.loggedin && <Navigate to='/verification' /> }
+        {this.state.errors.code===403 && (this.setState({
+          errors:{}
+        }))}
+        {this.state.errors.code===404 && (this.setState({
+          errors:{}
+        }))}
+        <h1 style={{"margin-bottom":"10px"}}>Log in</h1>
+
+        {/* <form onSubmit={this.onSubmitHandle1}> */}
+        <FormControl>
+        
           <TextField
+          variant="standard"
+            type='email'
             name="email"
-            label="email"
+            label="Email ID"
             value={this.state.user.email}
             onChange={this.handleChange('email')}
-            // error={errors.email}
-            />
-            <br/>
+            sx={{my:10}}
+            className="textfield"
+          />
           
+          <br />
           <TextField
+          variant="standard"
             type='password'
             name="password"
-            label="password"
+            label="Password"
             value={this.state.user.password}
             onChange={this.handleChange('password')}
-            // error={errors.password}
-            />
-            <br/>
-            <div  className="login">
-       <button type='submit'>Log in</button>
-        </div>
-            </form>
-        {/* <Router>
-          <Routes> */}
-           <p>New User?</p>
-           <NavLink to="/signup" className="navbar">Register Here</NavLink>
-        
-            </div>
+            sx={{my:10}}
+            className="textfield"
+          />
+          <br />
+            <Button variant='contained' color='primary' type='submit' onClick={this.onSubmitHandle1}>Login</Button>
+        </FormControl>
+        {/* </form> */}
+        <p style={{"margin":"10px"}}>New User?</p>
+
+        <Link to="/signup" style={{ textDecoration: 'none',fontSize:'19px', color:"#2C3639",width:"150px",marginLeft:"240px"}}>Register Here</Link>
+      </div>
+       
     )
   }
 }

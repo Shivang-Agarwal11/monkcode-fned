@@ -21,7 +21,7 @@ class SignUpContainer extends Component {
       btnTxt: "show",
       type: "password",
       score: "0",
-      toLogin:false
+      toHome:false
     };
 
     this.pwMask = this.pwMask.bind(this);
@@ -68,22 +68,25 @@ class SignUpContainer extends Component {
 
   submitSignup(user) {
     var params = { name: user.username,  email: user.email,password: user.password };
-    console.log(params)
+    // console.log(params)
     axios
-      .post("https://monkcoder.herokuapp.com/user/create", params)
+      .post("https://monkcoder.herokuapp.com/user/create", params,{headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+      }},)
       .then(res => {
-        console.log(res.data)
+        // console.log(res.data)
         if (res.data.response.code === 201) {
-          // localStorage.token = res.data.token;
-          // localStorage.isAuthenticated = true;
-          // console.log(localStorage.token)
+          localStorage.setItem("token", JSON.stringify(res.data.token));
+          localStorage.setItem("loggedIn",1);
+          localStorage.setItem("name", (res.data.user.name))
           this.setState({
-            toLogin:true
+            toHome:true
           })
           // window.location.reload();
         } 
          else {
-          console.log("ERROR")
+          // console.log("ERROR")
           this.setState({
             errors: { message: res.data.message }
           });
@@ -133,8 +136,8 @@ class SignUpContainer extends Component {
       
     return (
       <div>
-        {this.state.errors.code===400?alert('User Already Exists. Please login'):''}
-        {this.state.toLogin && <Navigate to="/login" replace={true}/>}
+        {this.state.errors.code===400 && alert('User Already Exists. Please login')}
+        {this.state.toHome && <Navigate to="/" replace={true}/>}
         <SignUpForm
           onSubmit={this.validateForm}
           onChange={this.handleChange}
