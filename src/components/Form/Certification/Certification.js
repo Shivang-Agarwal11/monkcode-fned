@@ -25,7 +25,7 @@ export class Certification extends Component {
     }
 
       render() {
-        // const {values}=this.props;
+        
     
         return (
               <div>
@@ -33,7 +33,7 @@ export class Certification extends Component {
                 placeholder="Title"
                 label="Title"
                 onChange={this.handleChange('title')}
-                // defaultValue={values.firstname}
+
                 margin="normal"
                 fullWidth
               />
@@ -56,6 +56,7 @@ export class Certification extends Component {
               <br/>
               
               <Button onClick={this.props.handleChange(this.state.certificate)} color="primary" variant='contained' style={{"margin":"20px","fontWeight":"700"}}>Add Fields</Button>
+              <Button onClick={this.props.handleChange(this.state.certificate)} color="primary" variant='contained' style={{"margin":"20px","fontWeight":"700","margin-left":"20px"}}>Cancel</Button>
               
               </div>
         );

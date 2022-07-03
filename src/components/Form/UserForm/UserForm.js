@@ -81,26 +81,25 @@ export class UserForm extends Component {
       "Content-Type": "application/json",
       "Authorization": `Bearer ${localStorage.getItem("token").slice(1,localStorage.getItem("token").length-1)}`,
     }
-    console.log(params)
-    console.log(headers.Authorization)
+  
     axios
       .post("https://monkcoder.herokuapp.com/resume/create", params,{headers:headers})
       .then(res => {
-        console.log(res.data)
+        
         if (res.data.response.code === 201) {
           localStorage.token = res.data.token;
           localStorage.isAuthenticated = true;
-          console.log(localStorage.token)
+          
           // window.location.reload();
         } else {
-          console.log("ERROR")
+          
           this.setState({
             errors: { message: res.data.message }
           });
         }
       })
       .catch(err => {
-        console.log("Sign up data submit error: ", err);
+        
       });
   }
 
@@ -138,69 +137,111 @@ export class UserForm extends Component {
 
   handleChangeSkills = (input) => e => {
     let skills = this.state.skills
+    if(input){
     skills.push(input)
     this.setState(prevState => ({
       skills: [...prevState.skills],
       skillAdd: false
+    }))}
+    else
+    this.setState(prevState=>({
+      skillAdd:false
     }))
     this.render()
   }
   handleChangeLanguages = (input) => e => {
     let languages = this.state.languages
+    if(input){
     languages.push(input)
     this.setState(prevState => ({
       languages: [...prevState.languages],
       langAdd: false
     }))
+  }
+  else
+  this.setState(prevState=>({
+    langAdd:false
+  }))
     this.render()
   }
   handleChangeInter = (input) => e => {
     let interests = this.state.interests
+    if(input){
     interests.push(input)
     this.setState(prevState => ({
       interests: [...prevState.interests],
       intAdd: false
     }))
+  }
+  else
+  this.setState(prevState=>({
+    intAdd:false
+  }))
     this.render()
   }
   handleChangeCertification = (input) => e => {
     let certificates = this.state.certificates
+    if(Object.keys(input).length>0){
     certificates.push(input)
     this.setState(prevState => ({
       certificates: [...prevState.certificates],
       certiAdd: false
     }))
+  }
+  else
+  this.setState(prevState=>({
+    certiAdd:false
+  }))
     this.render()
   }
 
 
   handleChangeAwards = (input) => e => {
     let awards = this.state.awards
+    if(Object.keys(input).length>0){
     awards.push(input)
     this.setState(prevState => ({
       awards: [...prevState.awards],
       awardAdd: false
+    }))}
+    else
+    this.setState(prevState=>({
+      awardAdd:false
     }))
     this.render()
   }
   handleChangeQualification = (input) => e => {
 
     let qualiDetails = this.state.qualiDetails
+    
+    if(Object.keys(input).length>0){
+      
     qualiDetails.push(input)
     this.setState(prevState => ({
       qualiDetails: [...prevState.qualiDetails],
       editing: false
     }))
+  }
+  else
+  this.setState(prevState=>({
+    editing:false
+  }))
     this.render()
   }
   handleChangeExperience = (input) => e => {
 
     let company = this.state.company
+    if(Object.keys(input).length>0){
     company.push(input)
     this.setState(prevState => ({
       company: [...prevState.company],
       companyAdd: false
     }))
+  }
+  else
+  this.setState(prevState=>({
+    companyAdd:false
+  }))
     this.render()
   }
 
@@ -215,10 +256,10 @@ export class UserForm extends Component {
                 <Card variant='elevation' elevation={6}>
                   <CardContent>
                     <AppBars values={"Academic History"}/>
-                    {this.state.qualiDetails.length === 0 ? "" : <ul>{(this.state.qualiDetails).map((quali) => <li key={quali.qualification}> {quali.qualification} </li>)}</ul>}
+                    {this.state.qualiDetails.length === 0 ? "" : <p>{(this.state.qualiDetails).map((quali) => <h4 key={quali.qualification}> {quali.qualification} </h4>)}</p>}
                     {!this.state.editing && (
                     
-                        <Button onClick={this.onEdit} color="primary" variant='contained'style={{"margin-top":"20px","fontWeight":"700"}}>Add Qualification</Button>
+                        <Button onClick={this.onEdit}  sx={{marginTop:"20"}} color="primary" variant='contained'style={{"fontWeight":"700"}}>Add Qualification</Button>
                       )}
                     {
                       this.state.editing && (
@@ -235,10 +276,10 @@ export class UserForm extends Component {
                 <Card variant='elevation' elevation={6}>
                   <CardContent>
                     <AppBars values={"Work Experience"} />
-                    {this.state.company.length === 0 ? "" : <ul>{(this.state.company).map((comp) => <li key={comp.name}> {comp.name} </li>)}</ul>}
+                    {this.state.company.length === 0 ? "" : <p>{(this.state.company).map((comp) => <h4 key={comp.name}> {comp.name} </h4>)}</p>}
                     {!this.state.companyAdd && (
                       
-                        <Button onClick={this.onCompAdd} color="primary" variant='contained' style={{"margin-top":"20px","fontWeight":"700"}}>Add Work</Button>
+                        <Button onClick={this.onCompAdd} color="primary" variant='contained' style={{"fontWeight":"700"}}>Add Work</Button>
                       )}
                     {
                       this.state.companyAdd && (
@@ -257,10 +298,10 @@ export class UserForm extends Component {
                 <Card variant='elevation' elevation={6}>
                   <CardContent>
                     <AppBars values={"Skills"} />
-                    {this.state.skills.length === 0 ? "" : <ul>{(this.state.skills).map((skill) => <li key={skill}> {skill} </li>)}</ul>}
+                    {this.state.skills.length === 0 ? "" : <p>{(this.state.skills).map((skill) => <h4 key={skill}> {skill} </h4>)}</p>}
                     {!this.state.skillAdd && (
                       
-                        <Button onClick={this.onSkillAdd} color="primary" variant='contained' style={{"margin-top":"20px","fontWeight":"700"}}>Add Skills</Button>
+                        <Button onClick={this.onSkillAdd} color="primary" variant='contained' style={{"fontWeight":"700"}}>Add Skills</Button>
                       )}
                     {
                       this.state.skillAdd && (
@@ -280,10 +321,10 @@ export class UserForm extends Component {
                 <Card variant='elevation' elevation={6}>
                   <CardContent>
                     <AppBars values={"Awards & Achievements"} />
-                    {this.state.awards.length === 0 ? "" : <ul>{(this.state.awards).map((award) => <li key={award.title}> {award.title} </li>)}</ul>}
+                    {this.state.awards.length === 0 ? "" : <p>{(this.state.awards).map((award) => <h4 key={award.title}> {award.title} </h4>)}</p>}
                     {!this.state.awardAdd && (
                       
-                        <Button onClick={this.onAwardAdd} color="primary" variant='contained'style={{"margin-top":"20px","fontWeight":"700"}}>Add Fields</Button>
+                        <Button onClick={this.onAwardAdd} color="primary" variant='contained'style={{"fontWeight":"700"}}>Add Fields</Button>
                       )}
                     {
                       this.state.awardAdd && (
@@ -303,9 +344,9 @@ export class UserForm extends Component {
                 <Card variant='elevation' elevation={6}>
                   <CardContent>
                     <AppBars values={" Certification & Projects "} />
-                    {this.state.certificates.length === 0 ? "" : <ul>{(this.state.certificates).map((certificate) => <li key={certificate.title}> {certificate.title} </li>)}</ul>}
+                    {this.state.certificates.length === 0 ? "" : <p>{(this.state.certificates).map((certificate) => <h4 key={certificate.title}> {certificate.title} </h4>)}</p>}
                     {!this.state.certiAdd && (
-                        <Button onClick={this.onCertAdd} color="primary" variant='contained' style={{"margin-top":"20px","fontWeight":"700"}}>Add Fields</Button>
+                        <Button onClick={this.onCertAdd} color="primary" variant='contained' style={{"fontWeight":"700"}}>Add Fields</Button>
                       )}
                     {
                       this.state.certiAdd && (
@@ -326,10 +367,10 @@ export class UserForm extends Component {
                 <Card variant='elevation' elevation={6}>
                   <CardContent>
                     <AppBars values={"Languages"} />
-                    {this.state.languages.length === 0 ? "" : <ul>{(this.state.languages).map((language) => <li key={language}> {language} </li>)}</ul>}
+                    {this.state.languages.length === 0 ? "" : <p>{(this.state.languages).map((language) => <h4 key={language}> {language} </h4>)}</p>}
                     {!this.state.langAdd && (
                      
-                        <Button onClick={this.onlangAdd} color="primary" variant='contained' style={{"margin-top":"20px","fontWeight":"700"}}>Add Language</Button>
+                        <Button onClick={this.onlangAdd} color="primary" variant='contained' style={{"fontWeight":"700"}}>Add Language</Button>
                       )}
                     {
                       this.state.langAdd && (
@@ -348,10 +389,10 @@ export class UserForm extends Component {
                 <Card variant='elevation' elevation={6}>
                   <CardContent>
                     <AppBars values={"Interests"} />
-                    {this.state.interests.length === 0 ? "" : <ul>{(this.state.interests).map((interest) => <li key={interest}> {interest} </li>)}</ul>}
+                    {this.state.interests.length === 0 ? "" : <p>{(this.state.interests).map((interest) => <h4 key={interest}> {interest} </h4>)}</p>}
                     {!this.state.intAdd && (
                     
-                        <Button onClick={this.onintAdd} color="primary" variant='contained' style={{"margin-top":"20px","fontWeight":"700"}}>Add Interest</Button>
+                        <Button onClick={this.onintAdd} color="primary" variant='contained' style={{"fontWeight":"700"}}>Add Interest</Button>
                       )}
                     {
                       this.state.intAdd && (

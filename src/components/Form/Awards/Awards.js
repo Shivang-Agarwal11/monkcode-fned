@@ -33,7 +33,6 @@ export class Awards extends Component {
                 placeholder="Title"
                 label="Title"
                 onChange={this.handleChange('title')}
-                // defaultValue={values.firstname}
                 margin="normal"
                 fullWidth
               />
@@ -42,7 +41,6 @@ export class Awards extends Component {
                 placeholder="Position"
                 label="Position"
                 onChange={this.handleChange('position')}
-                // defaultValue={values.lastname}
                 margin="normal"
                 fullWidth
               />
@@ -51,7 +49,6 @@ export class Awards extends Component {
                 placeholder="Organization"
                 label="Organization"
                 onChange={this.handleChange('organization')}
-                // defaultValue={values.email}
                 margin="normal"
                 fullWidth
                 />
@@ -60,13 +57,13 @@ export class Awards extends Component {
                 placeholder="Year"
                 label="Year"
                 onChange={this.handleChange('year')}
-                // defaultValue={values.address}
                 margin="normal"
                 fullWidth
                 />
               <br/>
               
               <Button onClick={this.props.handleChange(this.state.awards)} color="primary" variant='contained' style={{"margin-top":"20px","fontWeight":"700"}}>Add Fields</Button>
+              <Button onClick={this.props.handleChange(this.state.awards)} color="primary" variant='contained' style={{"margin-top":"20px","fontWeight":"700","margin-left":"20px"}}>Cancel</Button>
               
               </div>
         );

@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 
-import './Discuss.css'
-
 export class ShowPosts extends Component {
   render() {
     const values=this.props.values

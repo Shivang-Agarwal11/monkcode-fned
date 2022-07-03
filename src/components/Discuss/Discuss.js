@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import AddMessage from './AddMessage'
 import ShowPosts from './ShowPosts'
-
+import './Discuss.css'
 
 export class Discuss extends Component {
   state={
@@ -30,9 +30,7 @@ export class Discuss extends Component {
         </div>
         <AddMessage onSubmit={this.onAdd}/>
       <ShowPosts values={this.state.messages}/>
-      {/* <div className='discuss-container'>
-          
-      </div> */}
+
       </React.Fragment>
     )
   }

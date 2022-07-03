@@ -31,7 +31,7 @@ export class Academic extends Component {
 
     return (
 
-        
+        <>
       <FormControl fullWidth>
         <InputLabel id="qualification" margin='normal'>Qualification</InputLabel>
         <Select label="Qualification" value={this.state.qualiDetails.qualification} onChange={this.handleChange('qualification')} labelId="qualification">
@@ -41,7 +41,7 @@ export class Academic extends Component {
           <MenuItem value="Graduation">Graduation</MenuItem>
           <MenuItem value=" Intermediate"> Intermediate (12th) </MenuItem>
         </Select>
-
+        </FormControl>
         <TextField
           placeholder="From (Year)"
           label="From (Year)"
@@ -89,8 +89,9 @@ export class Academic extends Component {
         <br />
         
           <Button onClick={this.props.handleChange(this.state.qualiDetails)} color="primary" variant='contained' style={{"margin-top":"20px","fontWeight":"700"}}>Add Details</Button>
-        
-      </FormControl>
+          <Button onClick={this.props.handleChange(this.state.qualiDetails)} color="primary" variant='contained' style={{"margin-top":"20px","fontWeight":"700","margin-left":"20px"}}>Cancel</Button>
+        </>
+      
     );
   }
 

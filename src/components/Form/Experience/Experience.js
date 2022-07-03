@@ -28,8 +28,6 @@ export class Academic extends Component {
   }
 
   render() {
-    // console.log(this.state)
-
     return (
 
       <div>
@@ -38,7 +36,6 @@ export class Academic extends Component {
           placeholder="Company Name"
           label="Company Name"
           onChange={this.handleChange('name')}
-          //  defaultValue={this.values[0].from}
           margin="normal"
           fullWidth
         />
@@ -46,7 +43,6 @@ export class Academic extends Component {
           placeholder="Designation"
           label="Designation"
           onChange={this.handleChange('designation')}
-          //  defaultValue={this.values[0].from}
           margin="normal"
           fullWidth
         />
@@ -64,7 +60,6 @@ export class Academic extends Component {
           placeholder="Industry"
           label="Industry"
           onChange={this.handleChange('industry')}
-          //  defaultValue={this.state.degree}
           margin="normal"
           fullWidth
         />
@@ -73,7 +68,6 @@ export class Academic extends Component {
           placeholder="Start Date"
           label="Start Date"
           onChange={this.handleChange('start')}
-          //  defaultValue={this.state.institute}
           margin="normal"
           fullWidth
         />
@@ -82,13 +76,13 @@ export class Academic extends Component {
           placeholder="End Date"
           label="End Date"
           onChange={this.handleChange('end')}
-          //  defaultValue={this.state.percentage}
           margin="normal"
           fullWidth
         />
         <br />
 
         <Button style={{ "margin": "20px", "fontWeight": "700" }} onClick={this.props.handleChange(this.state.company)} color="primary" variant='contained'>Add Work</Button>
+        <Button style={{ "margin": "20px", "fontWeight": "700","margin-left":"20px" }} onClick={this.props.handleChange(this.state.company)} color="primary" variant='contained'>Cancel</Button>
 
       </div>
     );
