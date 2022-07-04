@@ -1,2 +1,4 @@
-.carousel{
+.nav-item:hover{
+    background-color: #537fbd;
+    border-radius: 5px;
 }

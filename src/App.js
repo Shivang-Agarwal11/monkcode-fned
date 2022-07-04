@@ -13,7 +13,7 @@ import NavBar from './components/NavBar/NavBar';
 
 const App = () => {
   return (
-    <Box width="400px" sx={{ width: { xl: '1488px' } }} m="auto">
+    <Box>
     <NavBar/>
     <Routes>
       <Route path="/" element={<Home/>}/>

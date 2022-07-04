@@ -44,14 +44,13 @@ export class LoginFormContainer extends Component {
         // console.log(res)
         if (res.data.response.code === 200) {
           localStorage.setItem("token", JSON.stringify(res.data.token));
-          localStorage.setItem("loogedIn",1);
+          localStorage.setItem("loggedIn",1);
           localStorage.setItem("name", (res.data.user.name))
           this.setState({
             loggedin: true
           })
 
         } else {
-          console.log("ERROR")
           this.setState({
             errors: { message: res.data.message }
           });
@@ -81,8 +80,6 @@ export class LoginFormContainer extends Component {
           errors:{}
         }))}
         <h1 style={{"margin-bottom":"10px"}}>Log in</h1>
-
-        {/* <form onSubmit={this.onSubmitHandle1}> */}
         <FormControl>
         
           <TextField

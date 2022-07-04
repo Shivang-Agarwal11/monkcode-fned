@@ -7,14 +7,12 @@ export class Discuss extends Component {
   state={
     messages:['Are there any upcoming sql related contests?',
     'Any one work in RRP institue?',
-    'Environment of RRp institue is good for work.'
+    'Environment of RRP institue is good for work.'
 
     ]
   }
 
   onAdd=(input)=>{
-    
-    // console.log(input)
     let messages=this.state.messages
       messages.push(input)
       this.setState(prevState=>({

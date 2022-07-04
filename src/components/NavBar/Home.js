@@ -9,7 +9,6 @@ class Home extends Component {
         return (
             <React.Fragment>
                     <div>
-
                         <div className='carousel'>
                             <Carousels />
                         </div>
