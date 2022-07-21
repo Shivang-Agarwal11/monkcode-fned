@@ -1,0 +1,31 @@
+.carousel {
+    overflow: hidden;
+    /* margin: none; */
+    max-width: 50%;
+    
+  }
+  
+  .inner {
+    white-space: nowrap;
+    transition: transform 0.3s;
+  }
+  
+  .carousel-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
+    /* background-color: white; */
+    color: rgb(5, 120, 214);
+  }
+  
+  .indicators {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .button-arrow:hover{
+    color: aliceblue;
+    /* color: black; */
+  }
+  

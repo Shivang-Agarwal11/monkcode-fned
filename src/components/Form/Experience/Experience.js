@@ -81,8 +81,8 @@ export class Academic extends Component {
         />
         <br />
 
-        <Button style={{ "margin": "20px", "fontWeight": "700" }} onClick={this.props.handleChange(this.state.company)} color="primary" variant='contained'>Add Work</Button>
-        <Button style={{ "margin": "20px", "fontWeight": "700","margin-left":"20px" }} onClick={this.props.handleChange(this.state.company)} color="primary" variant='contained'>Cancel</Button>
+        <Button style={{ "margin": "20px", "fontWeight": "700" }} onClick={this.props.handleChange(this.state.company)} color="transparent" variant='contained'>Add Work</Button>
+        <Button style={{ "margin": "20px", "fontWeight": "700","margin-left":"20px" }} onClick={this.props.handleChange({})} color="transparent" variant='contained'>Cancel</Button>
 
       </div>
     );

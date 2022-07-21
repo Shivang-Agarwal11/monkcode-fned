@@ -12,7 +12,7 @@ export class AppBars extends Component {
       const {values}=this.props
     return (
         <React.Fragment>
-        <AppBar position="static"  style={{ background: '#2E3B55',"margin-bottom":"10px" }} >
+        <AppBar position="static"  style={{ marginBottom:"15px" ,color:"black",backgroundColor:"#ced1d6"}} color="transparent">
         <Toolbar>
           <Typography variant="h6" color="inherit">
             <p>{values}</p>

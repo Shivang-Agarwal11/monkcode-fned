@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { FaBookReader } from "react-icons/fa";
 import { MdAccountCircle } from 'react-icons/md';
 import { AppBar, Box, Toolbar, IconButton, Typography, Menu, MenuItem, Tooltip, Button } from '@mui/material';
-
+import './NavBar.css';
 
 const axios = require("axios");
 
@@ -11,7 +11,7 @@ const axios = require("axios");
 const NavBar = () => {
 
   const [isprofileClick, isprofileGettingClicked] = useState(false);
-  const [link, setLink] = useState('/')
+  const [link, setLink] = useState('/login')
   const onClickHandler = () => {
     isprofileGettingClicked(isprofileClick === true ? false : true)
   }
@@ -40,7 +40,6 @@ const NavBar = () => {
     }
   }
   const logoutHandler = () => {
-    // console.log(`Bearer ${localStorage.getItem("token").slice(1, localStorage.getItem("token").length - 1)}`)
     const config = {
       headers: {
         'Content-Type': 'application/json',
@@ -72,8 +71,9 @@ const NavBar = () => {
 
 
   return (
-    <AppBar position='sticky'>
+    <AppBar position='sticky' color='primary' sx={{display:"flex"}}>
       <Toolbar disableGutters>
+        
         <IconButton size='large' edge='start' color='inherit' sx={{ ml: "20px" }}>
           <Typography
             variant="h4"
@@ -94,6 +94,8 @@ const NavBar = () => {
             </Link>
           </Typography>
         </IconButton>
+        
+        
         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
           {items.map((item) => (
             <div className='nav-item'>
@@ -108,7 +110,9 @@ const NavBar = () => {
             </div>
           ))}
         </Box>
-        <Box >
+        
+        
+        <Box sx={{ml:"15%"}}>
           <Tooltip title="Open">
             <IconButton onClick={onClickHandler} sx={{ mr: 20 }}>
               <MdAccountCircle size={38} />

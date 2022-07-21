@@ -1,39 +1,88 @@
-import React, { Component } from 'react'
-import ReactElasticCarousel from 'react-elastic-carousel';
 
-import Item from './Item'
-import './Carousels.css'
-import c1 from './c1.jpg'
-import c2 from './c2.jpg'
-import c3 from './c3.jpg'
-import c4 from './c4.jpg'
-import c5 from './c5.png'
-import c6 from './c6.png'
-import c7 from './c7.jpg'
-export class Carousels extends Component {
+import './Carousel.css'
+
+import {BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill} from 'react-icons/bs'
+import React, { useEffect, useState } from "react";
+import { useSwipeable } from "react-swipeable";
+
+import "./Carousel.css";
+import { Button } from '@mui/material';
+
+export const CarouselItem = ({ children, width }) => {
+  return (
     
-  render() {
-    const breakPoints = [
-        { width: 1, itemsToShow: 1 },
-        { width: 550, itemsToShow: 2 },
-        { width: 768, itemsToShow: 3 },
-        { width: 1200, itemsToShow: 4 },
-      ];
+    <div className="carousel-item" style={{ width: width }}>
+      {children}
+    </div>
+  );
+};
 
-      const images=[c1,c2,c3,c4,c5,c6,c7];
-    return (
-        <div>
-        <h1 className='car-h1'>Courses</h1>
-        <div className="Carousel">
-          <ReactElasticCarousel breakPoints={breakPoints}>
-            {images.map((image)=>
-            <Item><img src={image} className="image" alt="course"/> </Item>
-            )}
-          </ReactElasticCarousel>
-        </div>
-        </div>
-    )
-  }
-}
+const Carousel = ({ children }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
 
-export default Carousels
+  const updateIndex = (newIndex) => {
+    if (newIndex < 0) {
+      newIndex = React.Children.count(children) - 1;
+    } else if (newIndex >= React.Children.count(children)) {
+      newIndex = 0;
+    }
+
+    setActiveIndex(newIndex);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!paused) {
+        updateIndex(activeIndex + 1);
+      }
+    }, 3000);
+
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
+  });
+
+  const handlers = useSwipeable({
+    onSwipedLeft: () => updateIndex(activeIndex + 1),
+    onSwipedRight: () => updateIndex(activeIndex - 1)
+  });
+
+  return (
+    <div
+      {...handlers}
+      className="carousel"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <div
+        className="inner"
+        style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+      >
+        {React.Children.map(children, (child, index) => {
+          return React.cloneElement(child, { width: "100%" });
+        })}
+      </div>
+      <div className="indicators">
+        <Button sx={{'fontSize':30}} 
+          onClick={() => {
+            updateIndex(activeIndex - 1);
+          }}
+        >
+          <BsFillArrowLeftCircleFill className='button-arrow'/>
+        </Button>
+        <Button sx={{'fontSize':30}}
+          onClick={() => {
+            updateIndex(activeIndex + 1);
+          }}
+        >
+          <BsFillArrowRightCircleFill className='button-arrow'/>
+        </Button>
+      </div>
+    </div>
+  );
+};
+
+export default Carousel;

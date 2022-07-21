@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Button } from '@material-ui/core';
+import { button } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 
 export class Awards extends Component {
@@ -62,8 +62,8 @@ export class Awards extends Component {
                 />
               <br/>
               
-              <Button onClick={this.props.handleChange(this.state.awards)} color="primary" variant='contained' style={{"margin-top":"20px","fontWeight":"700"}}>Add Fields</Button>
-              <Button onClick={this.props.handleChange(this.state.awards)} color="primary" variant='contained' style={{"margin-top":"20px","fontWeight":"700","margin-left":"20px"}}>Cancel</Button>
+              <button onClick={this.props.handleChange(this.state.awards)} color="transparent" variant='contained' style={{"margin-top":"20px","fontWeight":"700"}}>Add Fields</button>
+              <button onClick={this.props.handleChange({})} color="transparent" variant='contained' style={{"margin-top":"20px","fontWeight":"700","margin-left":"20px"}}>Cancel</button>
               
               </div>
         );

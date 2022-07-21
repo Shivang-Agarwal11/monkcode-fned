@@ -32,8 +32,8 @@ export class Languages extends Component {
         />
         <br />
 
-        <Button onClick={this.props.handleChange(this.state.languages.name)} color="primary" variant='contained' style={{ "margin": "20px", "fontWeight": "700" }}>Add</Button>
-        <Button onClick={this.props.handleChange(this.state.languages.name)} color="primary" variant='contained' style={{ "margin": "20px", "fontWeight": "700", "margin-left": "20px" }}>Cancel</Button>
+        <Button onClick={this.props.handleChange(this.state.languages.name)} color="transparent" variant='contained' style={{ "margin": "20px", "fontWeight": "700" }}>Add</Button>
+        <Button onClick={this.props.handleChange(this.state.languages.name)} color="transparent" variant='contained' style={{ "margin": "20px", "fontWeight": "700", "margin-left": "20px" }}>Cancel</Button>
 
       </>
     );

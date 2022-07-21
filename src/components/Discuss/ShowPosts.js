@@ -5,11 +5,9 @@ export class ShowPosts extends Component {
     const values=this.props.values
     console.log(values)
     return (
-      <React.Fragment>
-        <div className='discuss-add-container'>
+        <div >
         {values.map((value)=><div className='discuss-message'>{value}</div>)}
         </div>
-      </React.Fragment>
     )
   }
 }

@@ -1,55 +1,31 @@
 .discuss-container{
-    width: 60%;
-    font-weight: 900;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-style: oblique;
-    text-align: center;
-    position: relative;
-    transform: translate(-50%,20%);
-    background-color: rgb(190, 196, 201);
-    box-shadow: 0 0 20px 2px rgba(0, 0, 0, .4);
-    padding: 20px;
-    left:50%;
-    display: flex;
-    
-}
-.discuss-container-h1{
-    width: 80%;
-    font-weight: 900;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-style: oblique;
-    text-align: center;
-    position: relative;
-    transform: translate(-50%,20%);
-    background-color: rgb(23, 24, 26);
-    box-shadow: 0 0 20px 2px rgba(0, 0, 0, .4);
-    padding: 20px;
-    left:50%;
-    display: flex;
-    color: aliceblue;
-    align-items: center;
-    justify-content: center;
-    /* margin-bottom: 30px; */
+     width: 60%;
     
 }
 .discuss-add-container{
-    width: 60%;
-    height: 500px;
-    font-weight: 900;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-style: oblique;
-    /* text-align: center; */
-    position: relative;
-    transform: translate(-50%,20%);
-    background-color: rgb(180, 180, 226);
-    box-shadow: 0 0 20px 2px rgba(0, 0, 0, .4);
-    padding: 20px;
-    left:50%;
+    width: 70%;
+    margin-top: 10px;
     display: flex;
-    border: 2px solid black;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(216, 226, 235);
+    margin-left: 10%;
     border-radius: 10px;
+}
+.discuss-h1{
+    background-color: rgb(186, 211, 211);
+    margin-top: 20px;
 }
 .discuss-message{
     padding-bottom: 10px;
+}
+.discuss-container button{
+    height:40px;
+    border:1px solid black;
+    background-color:rgb(190, 196, 201);
+}
+.discuss-container button:hover{
+    background-color: rgb(108, 112, 115);
+    color: aliceblue;
 }

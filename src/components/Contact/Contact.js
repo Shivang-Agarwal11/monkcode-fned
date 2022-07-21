@@ -1,6 +1,7 @@
 import './Contact.css'
 import emailjs from 'emailjs-com';
 import React from 'react';
+import { Button } from '@material-ui/core';
 const Contact = () => {
     function sendEmail(e) {
         e.preventDefault();
@@ -24,7 +25,8 @@ const Contact = () => {
             <input type='email' placeholder='Your Email' name='email'/>
             <input type='text' placeholder='Subject' name='subject'/>
               <textarea rows="8" placeholder='How Can We Help You ? ' name='message'/>
-            <button type='submit' className='btn'>Submit</button>
+              <br/>
+            <Button variant='contained' type='submit' style={{"borderRadius":"10px"}}>Submit</Button>
 
          </form>
        </div>

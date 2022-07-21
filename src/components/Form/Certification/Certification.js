@@ -55,8 +55,8 @@ export class Certification extends Component {
                 />
               <br/>
               
-              <Button onClick={this.props.handleChange(this.state.certificate)} color="primary" variant='contained' style={{"margin":"20px","fontWeight":"700"}}>Add Fields</Button>
-              <Button onClick={this.props.handleChange(this.state.certificate)} color="primary" variant='contained' style={{"margin":"20px","fontWeight":"700","margin-left":"20px"}}>Cancel</Button>
+              <Button onClick={this.props.handleChange(this.state.certificate)} color="transparent" variant='contained' style={{"margin":"20px","fontWeight":"700"}}>Add Fields</Button>
+              <Button onClick={this.props.handleChange({})} color="transparent" variant='contained' style={{"margin":"20px","fontWeight":"700","margin-left":"20px"}}>Cancel</Button>
               
               </div>
         );

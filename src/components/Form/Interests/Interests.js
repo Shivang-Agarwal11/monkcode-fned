@@ -34,8 +34,8 @@ export class Interests extends Component {
         />
         <br />
 
-        <Button style={{ "margin-top": "20px", "fontWeight": "700" }} onClick={this.props.handleChange(this.state.interests.name)} color="primary" variant='contained'>Add</Button>
-        <Button style={{ "margin-top": "20px", "fontWeight": "700","margin-left":"20px" }} onClick={this.props.handleChange(this.state.interests.name)} color="primary" variant='contained'>Cancel</Button>
+        <Button style={{ "margin-top": "20px", "fontWeight": "700" }} onClick={this.props.handleChange(this.state.interests.name)} color="transparent" variant='contained'>Add</Button>
+        <Button style={{ "margin-top": "20px", "fontWeight": "700","margin-left":"20px" }} onClick={this.props.handleChange(this.state.interests.name)} color="transparent" variant='contained'>Cancel</Button>
 
       </div>
     );

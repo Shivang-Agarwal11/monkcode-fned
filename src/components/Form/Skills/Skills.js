@@ -33,8 +33,8 @@ export class Skills extends Component {
         />
         <br />
 
-        <Button style={{ "margin": "20px", "fontWeight": "700" }} onClick={this.props.handleChange(this.state.skills.name)} color="primary" variant='contained'>Add</Button>
-        <Button style={{ "margin": "20px", "fontWeight": "700","margin-left":"20px" }} onClick={this.props.handleChange(this.state.skills.name)} color="primary" variant='contained'>Cancel</Button>
+        <Button style={{ "margin": "20px", "fontWeight": "700" }} onClick={this.props.handleChange(this.state.skills.name)} color="transparent" variant='contained'>Add</Button>
+        <Button style={{ "margin": "20px", "fontWeight": "700","margin-left":"20px" }} onClick={this.props.handleChange(this.state.skills.name)} color="transparent" variant='contained'>Cancel</Button>
 
       </div>
     );

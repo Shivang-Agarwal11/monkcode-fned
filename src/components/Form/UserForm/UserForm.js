@@ -9,7 +9,7 @@ import { Card, CardContent } from '@material-ui/core';
 import AppBars from '../AppBars';
 import Box from '@material-ui/core/Box';
 import { Button } from '@material-ui/core';
-
+import Display from '../Display';
 import { Languages } from '../Languages/Languages';
 import { Interests } from '../Interests/Interests';
 const axios = require("axios");
@@ -251,15 +251,16 @@ export class UserForm extends Component {
           <Personal
             handleChange={this.handleChangeProfile}
             values={this.state.profile} />
+
             <Box pt={3} textAlign='center'>
             <Box ml={20} mr={20} pt={10}>
                 <Card variant='elevation' elevation={6}>
                   <CardContent>
                     <AppBars values={"Academic History"}/>
-                    {this.state.qualiDetails.length === 0 ? "" : <p>{(this.state.qualiDetails).map((quali) => <h4 key={quali.qualification}> {quali.qualification} </h4>)}</p>}
+                     <Display details={this.state.qualiDetails} value={"qualification"}/>
                     {!this.state.editing && (
                     
-                        <Button onClick={this.onEdit}  sx={{marginTop:"20"}} color="primary" variant='contained'style={{"fontWeight":"700"}}>Add Qualification</Button>
+                        <Button onClick={this.onEdit}  sx={{marginTop:"20"}} color="transparent" variant='contained'style={{"fontWeight":"700", "width":"200px"}}>Add Qualification</Button>
                       )}
                     {
                       this.state.editing && (
@@ -276,10 +277,10 @@ export class UserForm extends Component {
                 <Card variant='elevation' elevation={6}>
                   <CardContent>
                     <AppBars values={"Work Experience"} />
-                    {this.state.company.length === 0 ? "" : <p>{(this.state.company).map((comp) => <h4 key={comp.name}> {comp.name} </h4>)}</p>}
+                   <Display details={this.state.company} value={"name"}/>
                     {!this.state.companyAdd && (
                       
-                        <Button onClick={this.onCompAdd} color="primary" variant='contained' style={{"fontWeight":"700"}}>Add Work</Button>
+                        <Button onClick={this.onCompAdd} color="transparent" variant='contained' style={{"fontWeight":"700", "width":"200px"}}>Add Work</Button>
                       )}
                     {
                       this.state.companyAdd && (
@@ -298,10 +299,10 @@ export class UserForm extends Component {
                 <Card variant='elevation' elevation={6}>
                   <CardContent>
                     <AppBars values={"Skills"} />
-                    {this.state.skills.length === 0 ? "" : <p>{(this.state.skills).map((skill) => <h4 key={skill}> {skill} </h4>)}</p>}
+                    <Display details={this.state.skills} value={""}/>
                     {!this.state.skillAdd && (
                       
-                        <Button onClick={this.onSkillAdd} color="primary" variant='contained' style={{"fontWeight":"700"}}>Add Skills</Button>
+                        <Button onClick={this.onSkillAdd} color="transparent" variant='contained' style={{"fontWeight":"700", "width":"200px"}}>Add Skills</Button>
                       )}
                     {
                       this.state.skillAdd && (
@@ -321,10 +322,10 @@ export class UserForm extends Component {
                 <Card variant='elevation' elevation={6}>
                   <CardContent>
                     <AppBars values={"Awards & Achievements"} />
-                    {this.state.awards.length === 0 ? "" : <p>{(this.state.awards).map((award) => <h4 key={award.title}> {award.title} </h4>)}</p>}
+                    <Display details={this.state.awards} value={"title"}/>
                     {!this.state.awardAdd && (
                       
-                        <Button onClick={this.onAwardAdd} color="primary" variant='contained'style={{"fontWeight":"700"}}>Add Fields</Button>
+                        <Button onClick={this.onAwardAdd} color="transparent" variant='contained'style={{"fontWeight":"700", "width":"200px"}}>Add Fields</Button>
                       )}
                     {
                       this.state.awardAdd && (
@@ -344,9 +345,9 @@ export class UserForm extends Component {
                 <Card variant='elevation' elevation={6}>
                   <CardContent>
                     <AppBars values={" Certification & Projects "} />
-                    {this.state.certificates.length === 0 ? "" : <p>{(this.state.certificates).map((certificate) => <h4 key={certificate.title}> {certificate.title} </h4>)}</p>}
+                    <Display details={this.state.certificates} value={"title"}/>
                     {!this.state.certiAdd && (
-                        <Button onClick={this.onCertAdd} color="primary" variant='contained' style={{"fontWeight":"700"}}>Add Fields</Button>
+                        <Button onClick={this.onCertAdd} color="transparent" variant='contained' style={{"fontWeight":"700", "width":"200px"}}>Add Fields</Button>
                       )}
                     {
                       this.state.certiAdd && (
@@ -367,10 +368,10 @@ export class UserForm extends Component {
                 <Card variant='elevation' elevation={6}>
                   <CardContent>
                     <AppBars values={"Languages"} />
-                    {this.state.languages.length === 0 ? "" : <p>{(this.state.languages).map((language) => <h4 key={language}> {language} </h4>)}</p>}
+                    <Display details={this.state.languages} value={""}/>
                     {!this.state.langAdd && (
                      
-                        <Button onClick={this.onlangAdd} color="primary" variant='contained' style={{"fontWeight":"700"}}>Add Language</Button>
+                        <Button onClick={this.onlangAdd} color="transparent" variant='contained' style={{"fontWeight":"700", "width":"200px"}}>Add Language</Button>
                       )}
                     {
                       this.state.langAdd && (
@@ -389,10 +390,10 @@ export class UserForm extends Component {
                 <Card variant='elevation' elevation={6}>
                   <CardContent>
                     <AppBars values={"Interests"} />
-                    {this.state.interests.length === 0 ? "" : <p>{(this.state.interests).map((interest) => <h4 key={interest}> {interest} </h4>)}</p>}
+                    <Display details={this.state.interests} value={""}/>
                     {!this.state.intAdd && (
                     
-                        <Button onClick={this.onintAdd} color="primary" variant='contained' style={{"fontWeight":"700"}}>Add Interest</Button>
+                        <Button onClick={this.onintAdd} color="transparent" variant='contained' style={{"fontWeight":"700", "width":"200px"}}>Add Interest</Button>
                       )}
                     {
                       this.state.intAdd && (
@@ -404,10 +405,9 @@ export class UserForm extends Component {
                     }
                   </CardContent>
                 </Card>
-              
             </Box>
           
-          <Button onClick={this.onSubmitForm} variant='contained' color='primary' style={{"margin":"20px","width":"400px","fontWeight":"700"}}>Submit </Button>
+          <Button onClick={this.onSubmitForm} variant='contained' color='transparent' style={{"margin":"20px","width":"400px","fontWeight":"700"}}>Submit </Button>
           </Box>
           
         </React.Fragment>

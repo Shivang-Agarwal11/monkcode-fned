@@ -1,13 +1,9 @@
-import React, { Component } from 'react'
-
-import AppBar from '@material-ui/core/AppBar';
+import React, { Component } from 'react';
 
 import TextField from '@material-ui/core/TextField';
 import { Card, CardContent } from '@material-ui/core';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-
+import AppBars from '../AppBars';
 
 export class Personal extends Component {
   render() {
@@ -18,13 +14,8 @@ export class Personal extends Component {
         
         <Card variant='elevation' elevation={6}>
           <CardContent>
-          <AppBar position="static"  style={{ background: '#2E3B55' }}>
-        <Toolbar>
-          <Typography variant="h6" color="inherit">
-            Personal Details
-          </Typography>
-        </Toolbar>
-      </AppBar>
+          <AppBars values={"Personal Details"}/>
+
           <TextField 
             placeholder="Name"
             label="Name"

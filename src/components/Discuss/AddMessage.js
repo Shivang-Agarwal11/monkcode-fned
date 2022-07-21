@@ -1,7 +1,7 @@
 import { Button, TextField } from '@material-ui/core'
 import React, { Component } from 'react'
-
-
+import {FormControl} from '@material-ui/core'
+import './Discuss.css'
 
 export class AddMessage extends Component {
   state={
@@ -33,6 +33,7 @@ export class AddMessage extends Component {
     // console.log(this.state.message)
     return (
       <div className='discuss-container'>
+      <FormControl fullWidth>
         <TextField 
         placeholder="Discuss"
         label="Discuss"
@@ -41,7 +42,8 @@ export class AddMessage extends Component {
         margin="normal"
         fullWidth
         />
-        <Button onClick={this.onSubmitH}>Post</Button>
+        <button onClick={this.onSubmitH}>Post</button>
+      </FormControl>
       </div>
     )
   }
