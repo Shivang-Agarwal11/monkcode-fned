@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import AddMessage from './AddMessage'
 import ShowPosts from './ShowPosts'
 import './Discuss.css'
-import { Box } from '@material-ui/core'
+
 
 export class Discuss extends Component {
   state = {
