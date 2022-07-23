@@ -23,7 +23,7 @@ const SubMenu = (props) => {
               <ListItemIcon><Button onClick={props.onClickHandler}><MdAccountCircle/></Button></ListItemIcon>
         </ListItem>
       <ListItem>
-       <Link to="/profile" style={{ textDecoration: 'none', color: '#3A1212', borderBottom: '3px solid #E4DCCF' }}>Profile</Link>
+       <Link to="/profile" style={{ textDecoration: 'none', color: '#3A1212', borderBottom: '3px solid #E4DCCF' ,backgroundColor:"red"}}>Profile</Link>
        </ListItem>
        <ListItem>
       <Link to="/resume" style={{ textDecoration: 'none', color: '#3A1212', borderBottom: '3px solid #E4DCCF' }}>Resume Builder</Link>

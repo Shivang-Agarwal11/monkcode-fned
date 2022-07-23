@@ -76,7 +76,7 @@ const NavBar = () => {
         
         <IconButton size='large' edge='start' color='inherit' sx={{ ml: "20px" }}>
           <Typography
-            variant="h4"
+            variant="h5"
             noWrap
             sx={{
               mr: 2,
@@ -84,11 +84,11 @@ const NavBar = () => {
               fontFamily: 'Areial',
               fontWeight: 700,
               letterSpacing: '.2rem',
-              color: 'white',
+              // color: '#355764',
               textDecoration: 'none',
             }}
           >
-            <Link to="/" style={{ textDecoration: 'none', color: '#CDD2C6' }}>
+            <Link to="/" style={{ textDecoration: 'none', color: '#F9F2ED' }}>
               <FaBookReader />
               Flex Learning
             </Link>
@@ -103,7 +103,7 @@ const NavBar = () => {
                 key={item[0]}
                 sx={{ color: 'white', display: 'block' }}
               >
-                <Link to={item[1]} style={{ textDecoration: 'none', color: '#CDD2C6', fontSize: '19px' }}>
+                <Link to={item[1]} style={{ textDecoration: 'none', color: '#F9F2ED', fontSize: '19px' }}>
                   {item[0]}
                 </Link>
               </Button>
@@ -137,12 +137,13 @@ const NavBar = () => {
               <Link style={{ textDecoration: 'none', color: '#1C658C', fontSize: '16px' }} to='/' >{localStorage.getItem("name")}
             </Link></Typography>:""}
             {settings.map((setting) => (
-              <MenuItem key={setting[0]} style={{ "backgroundColor": "#1C658C", "margin": "5px" }}>
-                <Typography textAlign="center"><Link style={{ textDecoration: 'none', color: '#F2FCFC', fontSize: '16px' }} to={setting[1]} >{setting[0]}
+              <MenuItem key={setting[0]} style={{ "backgroundColor": "inherit", "margin": "5px" }}>
+                <Typography textAlign="center"><Link style={{ textDecoration: 'none', color: '#06283D', fontSize: '16px' }} to={setting[1]} >{setting[0]}
                 </Link></Typography>
               </MenuItem>
             ))}
-            <MenuItem><Typography textAlign='center' ><Button onClick={authenticateHandler} sx={{ color: "#2C3639", backgroundColor: "#F2FCFC" }}><Link to={link} style={{ textDecoration: 'none', fontSize: '14px', color: "#1C658C" }} >{loggedIn} </Link></Button></Typography></MenuItem>
+            <hr/>
+            <MenuItem><Typography textAlign='center' ><Button onClick={authenticateHandler} sx={{ }}><Link to={link} style={{ textDecoration: 'none', fontSize: '14px', color: "#06283D" }} >{loggedIn} </Link></Button></Typography></MenuItem>
           </Menu>
         </Box>
       </Toolbar>
