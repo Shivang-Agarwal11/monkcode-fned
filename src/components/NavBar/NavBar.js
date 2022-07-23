@@ -71,7 +71,7 @@ const NavBar = () => {
 
 
   return (
-    <AppBar position='sticky' color='primary' sx={{display:"flex",height:"60px"}}>
+    <AppBar position='sticky' color='primary' sx={{display:"flex",height:"50px",alignContent:"center",justifyContent:"center"}}>
       <Toolbar disableGutters>
         
         <IconButton size='large' edge='start' color='inherit' sx={{ ml: "20px" }}>
